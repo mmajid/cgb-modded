@@ -427,21 +427,28 @@ Func algorithm_AllTroops() ;Attack Algorithm for all existing troops
 	;############################################# LSpell Attack ############################################################
 	DropLSpell()
 	;########################################################################################################################
+   ;If Bully Mode Found Attack from two sides good for dark elxier hunt
 	Local $nbSides = 0
+	If $SearchTHLResult=1 Then
+	  SetLog("~Attacking on two sides bully found...")
+			$nbSides = 2
+	Else
 	Switch $deploySettings
 		Case 0 ;Single sides ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			SetLog("Attacking on a single side", $COLOR_BLUE)
+			SetLog("~Attacking on a single side...")
 			$nbSides = 1
 		Case 1 ;Two sides ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			SetLog("Attacking on two sides", $COLOR_BLUE)
+			SetLog("~Attacking on two sides...")
 			$nbSides = 2
 		Case 2 ;Three sides ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			SetLog("Attacking on three sides", $COLOR_BLUE)
+			SetLog("~Attacking on three sides...")
 			$nbSides = 3
 		Case 3 ;Two sides ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			SetLog("Attacking on all sides", $COLOR_BLUE)
+			SetLog("~Attacking on all sides...")
 			$nbSides = 4
-	EndSwitch
+		 EndSwitch
+   EndIf
+
 	If ($nbSides = 0) Then Return
 	If _Sleep(1000) Then Return
 
