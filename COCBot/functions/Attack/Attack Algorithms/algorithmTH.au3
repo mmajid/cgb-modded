@@ -474,6 +474,7 @@ Func AttackTHXtreme()
 EndFunc   ;==>AttackTHXtreme
 
 Func AttackTHgbarch()
+ DropLSpell() ; Drop Lighting spell when doing townhall sniping
  Setlog("Sending 20 archers.")
  AttackTHGrid($eArch,1,8,2000,1,4,0) ; deploys 8 archers - take out possible bombs
  AttackTHGrid($eArch,1,12,25000,1,4,0) ; deploys 12 archers & wait 25s to check for star
@@ -484,7 +485,7 @@ Func AttackTHgbarch()
   Return ;exit if you get a star
   EndIf
   _Sleep(1000)
- 
+
  Setlog("No star yet? Sending 20 more archers.")
  AttackTHGrid($eArch,1,20,15000,2,4,0) ;releases 20 archers & wait 15s to check for star
  _Sleep(200)
@@ -499,7 +500,7 @@ Func AttackTHgbarch()
  AttackTHGrid($eGiant,2,1,1500,1,2,0) ;releases 2 giants in case of spring traps
  AttackTHGrid($eGiant,1,14,1500,2,2,0) ;releases up to 14 giants to take heat
  ;SpellTHGrid($eRSpell)
- AttackTHGrid($eBarb,1,16,1000,1,5,0) ; deploys up to 16 barbarians 
+ AttackTHGrid($eBarb,1,16,1000,1,5,0) ; deploys up to 16 barbarians
  AttackTHGrid($eBarb,1,20,1500,1,5,0) ; deploys up to 20 barbarians
  AttackTHGrid($eArch,1,24,1500,3,4,0) ; deploys 24 archers
  AttackTHGrid($eArch,1,24,1500,3,4,0) ; deploys 24 archers
@@ -513,7 +514,7 @@ Func AttackTHgbarch()
 
  Setlog("Hope the rest of your troops can finish the job!")
  AttackTHGrid($eGiant,1,18,1500,3,2,0) ;releases up to 18 giants (in case numbers are off)
- AttackTHGrid($eBarb,1,32,1200,2,5,1) ; deploys Heroes/CC + up to 32 barbarians 
+ AttackTHGrid($eBarb,1,32,1200,2,5,1) ; deploys Heroes/CC + up to 32 barbarians
  AttackTHGrid($eBarb,1,32,1200,2,5,0) ; deploys up to 32 barbarians
  AttackTHGrid($eBarb,1,32,1500,2,5,0) ; deploys up to 32 barbarians
  AttackTHGrid($eArch,1,40,1200,4,4,0) ;releases 40 archers
